@@ -1,0 +1,453 @@
+This is the gnu-apl-mode interactive buffer.
+
+To toggle keyboard help, call M-x gnu-apl-show-keyboard (C-c C-k by default).
+APL symbols are bound to the standard keys with the Super key. You can also
+activate the APL-Z input method (M-x toggle-input-method or C-\) which
+allows you to input APL symbols by prefixing the key with a "." (period).
+
+There are several customisation options that can be set.
+Click the link or run M-x customize-group RET gnu-apl to set up.
+
+To disable this message, set gnu-apl-show-tips-on-start to nil.
+
+Network listener started. Connection information: mode:tcp addr:44358
+                                       
+                    ______ _   __ __  __    ___     ____   __ 
+                   / ____// | / // / / /   /   |   / __ \ / / 
+                  / / __ /  |/ // / / /   / /| |  / /_/ // /  
+                 / /_/ // /|  // /_/ /   / ___ | / ____// /___
+                 \____//_/ |_/ \____/   /_/  |_|/_/    /_____/
+                                       
+                       Welcome to GNU APL version 1.5 / 
+                                       
+                Copyright (C) 2008-2015  Dr. Jürgen Sauermann
+                       Banner by FIGlet: www.figlet.org
+                                       
+                This program comes with ABSOLUTELY NO WARRANTY;
+                     for details run: /usr/bin/apl --gpl.
+                                       
+     This program is free software, and you are welcome to redistribute it
+         according to the GNU Public License (GPL) version 3 or later.
+                                       
+      1
+1
+      2
+2
+      ⍳ 10
+1 2 3 4 5 6 7 8 9 10
+      ⍞<-0
+⍳10
+DOMAIN ERROR
+      ⍞<-0
+      ^ ^
+      x<-1
+
+*** Attempt to start a new joblist at ScalarFunction.cc:234 while joblist from ScalarFunction.cc:426 is not finished
+
+----------------------------------------
+-- Stack trace at Parallel.hh:457
+----------------------------------------
+0x7fb2de5de830 __libc_start_main
+0x443255  main
+0x54ff0d   Workspace::immediate_execution(bool)
+0x483e72    Command::process_line()
+0x483efb     Command::do_APL_expression(UCS_string&)
+0x48e278      Executable::execute_body() const
+0x508fb0       StateIndicator::run()
+0x4bc619        Prefix::reduce_statements()
+0x4bbadc         Prefix::reduce_MISC_F_B_()
+0x503411          Bif_F12_MINUS::eval_B(Value_P)
+0x4fd66a           ScalarFunction::eval_scalar_B(Value_P, ErrorCode (Cell::*)(Cell*) const)
+========================================
+VALUE ERROR
+      x<-1
+      ^
+      x←1
+      x
+1
+      ⍞←0
+0
+      ⍳5
+1 2 3 4 5
+      IO←0
+      ⍳4
+1 2 3 4
+      ⌷←0
+SYNTAX ERROR
+      ⌷←0
+      ^^
+      x←1 2 3
+      x
+1 2 3
+      y←4 5 6
+      x + y
+5 7 9
+      ⍴ x
+3
+      ⍳ 9
+1 2 3 4 5 6 7 8 9
+      3,3 ⍴ ⍳ 9
+3 1 2 3
+      33 ⍴ ⍳ 9
+1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6
+      3 3 ⍴ ⍳ 9
+1 2 3
+4 5 6
+7 8 9
+      ⍴ 3 3 ⍴ ⍳ 9
+3 3
+      x←⍴ 
+      3 3 ⍴ 10 
+10 10 10
+10 10 10
+10 10 10
+      x + (3 3 ⍴ 10 )
+RANK ERROR
+      x+(3 3⍴10)
+      ^ ^
+      x
+3 3
+      3 3
+      
+3 3
+      x ←3 3 ⍴ ⍳ 9
+      x
+1 2 3
+4 5 6
+7 8 9
+      x + y
+RANK ERROR
+      x+y
+      ^ ^
+      y←(3 3 ⍴ 10 )
+      y
+10 10 10
+10 10 10
+10 10 10
+      x + y
+11 12 13
+14 15 16
+17 18 19
+      1 1 1 ⍴ (x+y)
+11
+      ⍴ 2
+
+      ⍴ (1 1 1 ⍴ (x+y))
+1 1 1
+      3 1 2 ⍴ (x+y)
+11 12
+
+13 14
+
+15 16
+      1 2 3 ⍴ (x+y)
+11 12 13
+14 15 16
+      2 2 3 ⍴ (x+y)
+11 12 13
+14 15 16
+
+17 18 19
+11 12 13
+      +/1 2 3
+6
+      x
+1 2 3
+4 5 6
+7 8 9
+      +/x
+6 15 24
+      +/[2]x
+6 15 24
+      +/[1]x
+12 15 18
+      ⎕io←0
+      ⍳ 10
+0 1 2 3 4 5 6 7 8 9
+      0 1 2 3 4 5 6 7 8 9
+      
+0 1 2 3 4 5 6 7 8 9
+      
+      x ← 10
+      ⍳ x
+0 1 2 3 4 5 6 7 8 9
+     1 | 2
+0
+      10|2
+2
+      10 | 2
+2
+      2 | 10
+0
+      2 | 5
+1
+      3 | 5
+2
+      x ← ⍳ 10
+      x
+0 1 2 3 4 5 6 7 8 9
+      1 2 ∘. x 1 2
+SYNTAX ERROR
+      1 2∘∘.x 1 2
+      ^     ^
+            ^     ^
+      
+SYNTAX ERROR
+      ∧∧
+      ^^
+      1× 3
+3
+      x
+0 1 2 3 4 5 6 7 8 9
+      x∘. × x
+0 0  0  0  0  0  0  0  0  0
+0 1  2  3  4  5  6  7  8  9
+0 2  4  6  8 10 12 14 16 18
+0 3  6  9 12 15 18 21 24 27
+0 4  8 12 16 20 24 28 32 36
+0 5 10 15 20 25 30 35 40 45
+0 6 12 18 24 30 36 42 48 54
+0 7 14 21 28 35 42 49 56 63
+0 8 16 24 32 40 48 56 64 72
+0 9 18 27 36 45 54 63 72 81
+      ⌷io←1
+VALENCE ERROR
+      ⌷io←1
+      ^^
+      ⎕io← 1
+      ⍳ 10
+1 2 3 4 5 6 7 8 9 10
+      y ← ⍳ 10
+      y
+1 2 3 4 5 6 7 8 9 10
+      y∘. |y
+0 0 0 0 0 0 0 0 0 0
+1 0 1 0 1 0 1 0 1 0
+1 2 0 1 2 0 1 2 0 1
+1 2 3 0 1 2 3 0 1 2
+1 2 3 4 0 1 2 3 4 0
+1 2 3 4 5 0 1 2 3 4
+1 2 3 4 5 6 0 1 2 3
+1 2 3 4 5 6 7 0 1 2
+1 2 3 4 5 6 7 8 0 1
+1 2 3 4 5 6 7 8 9 0
+      
+1 1 1 1 1 1 1 1 1 1
+0 1 0 1 0 1 0 1 0 1
+0 0 1 0 0 1 0 0 1 0
+0 0 0 1 0 0 0 1 0 0
+0 0 0 0 1 0 0 0 0 1
+0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 1 0 0 0
+0 0 0 0 0 0 0 1 0 0
+0 0 0 0 0 0 0 0 1 0
+0 0 0 0 0 0 0 0 0 1
+      + 1 2 3
+1 2 3
+      +/ 2 2 ⍴ ⍳4
+3 7
+      ⍳ 4
+1 2 3 4
+      2 2 ⍴ ⍳ 4
+1 2
+3 4
+      +/2 2 ⍴ ⍳ 4
+3 7
+      
+      +/[1]2 2 ⍴ ⍳ 4
+4 6
+      
+      +/[1] (0 = y∘. |y
+SYNTAX ERROR
+      ⌷io←1
+      ^^
+SYNTAX ERROR
+            ⌷io←1
+            ^^
+      
+      +/[1] (0 = y∘. |y)
+1 2 2 3 2 4 2 4 3 4
+      2 = +/[1] (0 = y∘. |y)
+0 1 1 0 1 0 1 0 0 0
+      1 0 1/ ⍳ 1 2 3
+LENGTH ERROR
+      1 0 1/⍳1 2 3
+            ^
+      1 0 1/ ⍳3
+1 3
+      (2 = +/[1] (0 = y∘. |y)) / y
+2 3 5 7
+      
+      ⍋ 12 10 9 17 56
+3 2 1 4 5
+      x←12 10 9 17 56
+      x
+12 10 9 17 56
+      ⍋ x
+3 2 1 4 5
+      x[⍋x]
+9 10 12 17 56
+      ⌽x
+56 17 9 10 12
+      2⌽x
+9 17 56 12 10
+      9 17 56 12 10
+      
+9 17 56 12 10
+      
+      
+      
+      
+      
+      
+      
+      9 17 56 12 10
+      
+9 17 56 12 10
+      
+      
+      
+      
+      1
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      1
+1
+      2
+2
+      3
+3
+      1+2
+3
+      12 13 14
+12 13 14
+      (12 13 14) + (1 2 3)
+13 15 17
+      ⍳ 10
+1 2 3 4 5 6 7 8 9 10
+      1+ (⍳ 10)
+2 3 4 5 6 7 8 9 10 11
+      ⍴ 1
+
+      
+      ⍴ 1
+
+      ⍴ 1 2 3
+3
+      2 5 ⍴ (⍳ 10)
+1 2 3 4  5
+6 7 8 9 10
+      
+      (2 5 ⍴ (⍳ 10)) = (2 5 ⍴ (⍳ 10))
+1 1 1 1 1
+1 1 1 1 1
+      
+      ⍋[⍳10]
+SYNTAX ERROR
+      ⍋[⍳10]
+      ^^
+      ⍳10
+1 2 3 4 5 6 7 8 9 10
+      ⍋ 21 32 41 50 0
+5 1 2 3 4
+      (1 2 3)[3]
+3
+      (1 2 3)[2 3]
+2 3
+      x← ⍳10
+      x ← 21 30 61 42 0
+      x
+21 30 61 42 0
+      x[⍋x]
+0 21 30 42 61
+      
+      0 21 30 42 61
+      
+0 21 30 42 61
+      
+      2 | 3
+1
+      ⍳10
+1 2 3 4 5 6 7 8 9 10
+      x ← ⍳10
+      x
+1 2 3 4 5 6 7 8 9 10
+      x ∘. + x
+ 2  3  4  5  6  7  8  9 10 11
+ 3  4  5  6  7  8  9 10 11 12
+ 4  5  6  7  8  9 10 11 12 13
+ 5  6  7  8  9 10 11 12 13 14
+ 6  7  8  9 10 11 12 13 14 15
+ 7  8  9 10 11 12 13 14 15 16
+ 8  9 10 11 12 13 14 15 16 17
+ 9 10 11 12 13 14 15 16 17 18
+10 11 12 13 14 15 16 17 18 19
+11 12 13 14 15 16 17 18 19 20
+      x
+1 2 3 4 5 6 7 8 9 10
+      x∘. | x
+0 0 0 0 0 0 0 0 0 0
+1 0 1 0 1 0 1 0 1 0
+1 2 0 1 2 0 1 2 0 1
+1 2 3 0 1 2 3 0 1 2
+1 2 3 4 0 1 2 3 4 0
+1 2 3 4 5 0 1 2 3 4
+1 2 3 4 5 6 0 1 2 3
+1 2 3 4 5 6 7 0 1 2
+1 2 3 4 5 6 7 8 0 1
+1 2 3 4 5 6 7 8 9 0
+      0 = (x∘. | x)
+1 1 1 1 1 1 1 1 1 1
+0 1 0 1 0 1 0 1 0 1
+0 0 1 0 0 1 0 0 1 0
+0 0 0 1 0 0 0 1 0 0
+0 0 0 0 1 0 0 0 0 1
+0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 1 0 0 0
+0 0 0 0 0 0 0 1 0 0
+0 0 0 0 0 0 0 0 1 0
+0 0 0 0 0 0 0 0 0 1
+      +/1 2 3
+6
+      2 5 ⍴ (⍳ 10)
+1 2 3 4  5
+6 7 8 9 10
+      +/ 2 5 ⍴ (⍳ 10)
+15 40
+      +/[1] 2 5 ⍴ (⍳ 10)
+7 9 11 13 15
+      
+       +/[1] (0 = (x∘. | x))
+1 2 2 3 2 4 2 4 3 4
+      
+0 1 1 0 1 0 1 0 0 0
+      
+      1 0 1/ 4 5 6
+4 6
+      (2 = ( +/[1] (0 = (x∘. | x))))/ x
+2 3 5 7
+      
