@@ -1,0 +1,100 @@
+Gofer Version 2.30a
+Modifications for pugofer Rusi Mody
+Copyright (c) Mark P Jones 1991-1994
+Copyright (c) Rusi Mody 1995-2015
+
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/len.gs
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/len.gs
+? len.[1,2,3]
+3 : Int
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/len.gs
+? len.[1,2,3]
+3 : Int
+? :t len
+len : [Int] -> Int
+? :t len
+len : [Int] -> Int
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/len.gs
+? :t len
+len : [a] -> Int
+? len.[[1,2],[4,5]]
+2 : Int
+? len.[[1,2],4]
+
+ERROR: Type error in list
+*** expression     : [[1,2],4]
+*** term           : 4
+*** type           : Int
+*** does not match : [Int]
+
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/len.gs
+? app.[].[1,2,3]
+[1, 2, 3] : [Int]
+? app.[4,5,6].[1,2,3]
+[4, 5, 6, 1, 2, 3] : [Int]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/len.gs
+? app.[].[]
+[] : [a]
+? app.[].[1,2,3]
+[1, 2, 3] : [Int]
+? :t app
+app : [a] -> [a] -> [a]
+? 
+ERROR "/home/anu/pci/pccoe/day2/len.gs" (line 19): Type error in function binding
+*** term           : zip2
+*** type           : [[a]] -> [[b]] -> [(a,b)]
+*** does not match : [a] -> [b] -> [(a,b)]
+*** because        : unification would give infinite type
+
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/len.gs
+? zip2.[1,2,3].['a','b','c']
+[(1,'a'), (2,'a'), (3,'a')] : [(Int,Char)]
+? zip2.[1,2,3,4].['a','b','c']
+[(1,'a'), (2,'a'), (3,'a'), (4,'a')] : [(Int,Char)]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/len.gs
+?zip2.[1,2,3,4].['a','b','c']
+[(1,'a'), (2,'b'), (3,'c')
+Program error: {zip2.[4].[]}
+
+
+? zip2.[1,2,3,4].['a','b','c','d']
+[(1,'a'), (2,'b'), (3,'c'), (4,'d')] : [(Int,Char)]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/len.gs
+? zip2.[1,2,3,4].['a','b','c']
+[(1,'a'), (2,'b'), (3,'c')] : [(Int,Char)]
+? zip2.[1,2].['a','b','c']
+[(1,'a'), (2,'b')] : [(Int,Char)]
+? :t zip2
+zip2 : [a] -> [b] -> [(a,b)]
+? [1,2,3]
+
+

@@ -1,0 +1,20 @@
+Gofer Version 2.30a
+Modifications for pugofer Rusi Mody
+Copyright (c) Mark P Jones 1991-1994
+Copyright (c) Rusi Mody 1995-2015
+
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+? 
+ERROR "/home/anu/data.gs" (line 6): Syntax error in expression (unexpected `]')
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/data.gs
+? ci
+[("Yogesh",55,75,100), ("Piyush",97,77,120), ("Neha",79,67,150), ("Pratik",33,177,60), ("Yash",82,85,20)] : [([Char],Int,Int,Int)]
+? [nm| (nm, m1,m2,m3) <- ci]
+["Yogesh", "Piyush", "Neha", "Pratik", "Yash"] : [[Char]]
+? [(nm, m1+m2+m3)| (nm, m1,m2,m3) <- ci]
+[("Yogesh",230), ("Piyush",294), ("Neha",296), ("Pratik",270), ("Yash",187)] : [([Char],Int)]
+? 

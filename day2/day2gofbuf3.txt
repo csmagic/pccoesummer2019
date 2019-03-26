@@ -1,0 +1,145 @@
+Gofer Version 2.30a
+Modifications for pugofer Rusi Mody
+Copyright (c) Mark P Jones 1991-1994
+Copyright (c) Rusi Mody 1995-2015
+
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+? [1,2,3]
+[1, 2, 3] : [Int]
+? ['a','b']
+ab
+? [True, False, True]
+[True, False, True] : [Bool]
+? [[True, False, True],[True]]
+[[True, False, True], [True]] : [[Bool]]
+? [[True, False, True],True]
+
+ERROR: Type error in list
+*** expression     : [[True,False,True],True]
+*** term           : True
+*** type           : Bool
+*** does not match : [Bool]
+
+? [[True, False, True],25]
+ERROR: Type error in list
+*** expression     : [[True,False,True],25]
+*** term           : 25
+*** type           : Int
+*** does not match : [Bool]
+
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/x.gs
+? :t f
+f : Int -> Int
+? :t g
+g : Int -> Int
+? f.4
+5 : Int
+? g.4
+8 : Int
+? [f,g]
+[f, g] : [Int -> Int]
+? [f,1]
+
+ERROR: Type error in list
+*** expression     : [f,1]
+*** term           : 1
+*** type           : Int
+*** does not match : Int -> Int
+
+? [f.4,g.4]
+[5, 8] : [Int]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/x.gs
+? [f.4,g.4,h.4]
+[5, 8, 12] : [Int]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/x.gs
+? fl
+[f, g, h] : [Int -> Int]
+? [1,2,3]!! 0
+1 : Int
+? [1,2,3]!! 1
+2 : Int
+? :t (!!)
+(!!) : [a] -> Int -> a
+? [(fl!!0).4,(fl!!1).4,(fl!!2).4]
+[5, 8, 12] : [Int]
+? 
+[5, 8, 12] : [Int]
+? [x+1 | x <- [1,2,3,4,5]]
+[2, 3, 4, 5, 6] : [Int]
+? [(+1).x | x <- [1,2,3,4,5]]
+[2, 3, 4, 5, 6] : [Int]
+? map.(+1).[1,2,3,4,5]
+[2, 3, 4, 5, 6] : [Int]
+? :t map
+map : (a -> b) -> [a] -> [b]
+? [fn.4 | fn <- fl]
+[5, 8, 12] : [Int]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/x.gs
+? :t pam
+pam : [a -> b] -> a -> [b]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/x.gs
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/x.gs
+? pam.fl.4
+[5, 8, 12] : [Int]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/x.gs
+? pam.fl.4
+[5, 8, 12] : [Int]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day2/x.gs
+? :t map
+map : (a -> b) -> [a] -> [b]
+? map.(1::).[1,2,3]
+
+ERROR: Type error in application
+*** expression     : map.(1 ::).[1,2,3]
+*** term           : (1 ::)
+*** type           : [Int] -> [Int]
+*** does not match : Int -> [Int]
+
+? map.(1::).[[1,2,3],[4,5,6]]
+[[1, 1, 2, 3], [1, 4, 5, 6]] : [[Int]]
+? :t ord
+ord : Char -> Int
+? ord.'A'
+65 : Int
+? 
+[65, 66, 67] : [Int]
+? :t chr
+chr : Int -> Char
+? chr.65
+'A' : Char
+? map.chr.(map.ord.['A','B','C'])
+ABC
+? map.chr.(map.(+1).(map.ord.['A','B','C']))
+BCD
+? :t len
+ERROR: Undefined variable "len"
+? :t length
+length : [a] -> Int
+? map.length.[[1,2,3],[5,6]]
+[3, 2] : [Int]
+? 
