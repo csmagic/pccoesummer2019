@@ -1,0 +1,119 @@
+Gofer Version 2.30a
+Modifications for pugofer Rusi Mody
+Copyright (c) Mark P Jones 1991-1994
+Copyright (c) Rusi Mody 1995-2015
+
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+? :t \x->x+3
+\x -> x + 3 : Int -> Int
+? (\x->x+3).5
+8 : Int
+? -3 + 2
+-1 : Int
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day3/lambda.gs
+? [x+1|x <- [1,2,3]
+
+ERROR: Syntax error in expression (unexpected end of input)
+? [x+1|x <- [1,2,3]]
+[2, 3, 4] : [Int]
+? [(+1).x|x <- [1,2,3]]
+[2, 3, 4] : [Int]
+? 2 + 3
+5 : Int
+? (+3).2
+5 : Int
+? (2+).3
+5 : Int
+? :t (<)
+(<) : a -> a -> Bool
+? :t (<2)
+flip.(<).2 : Int -> Bool
+? [(<2).x| x<- [0...10]]
+[True, True, False, False, False, False, False, False, False, False, False] : [Bool]
+? [(2<).x| x<- [0...10]]
+[False, False, False, True, True, True, True, True, True, True, True] : [Bool]
+? [(\x->x<2).y| y<- [0...10]]
+[True, True, False, False, False, False, False, False, False, False, False] : [Bool]
+? [(\x->x>2).y| y<- [0...10]]
+[False, False, False, True, True, True, True, True, True, True, True] : [Bool]
+? [(\x->2<x).y| y<- [0...10]]
+[False, False, False, True, True, True, True, True, True, True, True] : [Bool]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day3/reduce.gs
+? suml.[1,2,3]
+6 : Int
+? 
+ERROR "/home/anu/pci/pccoe/day3/reduce.gs" (line 32): Ambiguous use of operator "=\" with "->\"
+? 
+ERROR "/home/anu/pci/pccoe/day3/reduce.gs" (line 32): Syntax error in declaration (unexpected `->')
+? 
+ERROR "/home/anu/pci/pccoe/day3/reduce.gs" (line 32): Syntax error in declaration (unexpected `->')
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day3/reduce.gs
+? suml.[1,2,3]
+6 : Int
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day3/reduce.gs
+? suml.[1,2,3]
+6 : Int
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day3/reduce.gs
+? suml.[1,2,3]
+6 : Int
+? suml1.[1,2,3]
+6 : Int
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day3/reduce.gs
+? [len1.x| x <- [[1,2,3],[1...10],[]]
+
+ERROR: Syntax error in expression (unexpected end of input)
+? [len1.x| x <- [[1,2,3],[1...10],[]]]
+[3, 10, 0] : [Int]
+? 
+ERROR "/home/anu/pci/pccoe/day3/reduce.gs" (line 53): Syntax error in expression (unexpected symbol "->\")
+? 
+ERROR "/home/anu/pci/pccoe/day3/reduce.gs" (line 9): Undefined variable "op1"
+? 
+ERROR "/home/anu/pci/pccoe/day3/reduce.gs" (line 53): Undefined variable "id1"
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day3/reduce.gs
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day3/reduce.gs
+? len1.[1,2,3]
+3 : Int
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day3/reduce.gs
+? len1.[1,2,3]
+3 : Int
+? [len1.x| x <- [[1,2,3],[1...10],[]]]
+[3, 10, 0] : [Int]
+? 
+ERROR "/home/anu/pci/pccoe/day3/reduce.gs" (line 54): Type error in application
+*** expression     : reducer.(1 +).0
+*** term           : (1 +)
+*** type           : Int -> Int
+*** does not match : a -> Int -> Int
+
+? :t const.(1+)
+const.(1 +) : a -> Int -> Int
+? 
