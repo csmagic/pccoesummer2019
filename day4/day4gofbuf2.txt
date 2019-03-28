@@ -1,0 +1,113 @@
+Gofer Version 2.30a
+Modifications for pugofer Rusi Mody
+Copyright (c) Mark P Jones 1991-1994
+Copyright (c) Rusi Mody 1995-2015
+
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/mapcomp.gs
+?rot13
+rot13 : Int -> Int
+? rot13.10
+23 : Int
+? rot13.23
+10 : Int
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/mapcomp.gs
+? :t rot13
+rot13 : Char -> Char
+? [rot13.x | x <-['A'...'Z']]
+
+ERROR: Type error in application
+*** expression     : enumFromTo.'A'.'Z'
+*** term           : 'Z'
+*** type           : Char
+*** does not match : Int
+
+? [rot13.x | x <- "ABCDEFGHIJKLMNOPQRST"]
+NOPQRSTUVWXYZABCDEFG
+? negate
+negate : Int -> Int
+? negate.5
+-5 : Int
+? (-65)
+-65 : Int
+? flip.(-).65
+flip.(-).65 : Int -> Int
+? flip.(-).65.4
+ERROR: Type error in application
+*** expression     : flip.(-).65.4
+*** term           : (-)
+*** type           : Int -> Int -> Int
+*** does not match : a -> Float -> Int
+
+? flip.(-).65 . 4
+-61 : Int
+? subtract
+flip.(-) : Int -> Int -> Int
+? 3 - 4
+-1 : Int
+? subtract . 3 . 4
+1 : Int
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/mapcomp.gs
+? [rot13.x | x <- "ABCDEFGHIJKLMNOPQRST"]
+NOPQRSTUVWXYZABCDEFG
+? 
+ERROR "/home/anu/pci/pccoe/day4/mapcomp.gs" (line 5): Type error in application
+*** expression     : subtract.65.rot13i
+*** term           : rot13i
+*** type           : Int -> Int
+*** does not match : Int
+
+? 
+ERROR "/home/anu/pci/pccoe/day4/mapcomp.gs" (line 5): Type error in application
+*** expression     : subtract.65.rot13i
+*** term           : rot13i
+*** type           : Int -> Int
+*** does not match : Int
+
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/mapcomp.gs
+? [rot13.x | x <- "ABCDEFGHIJKLMNOPQRST"]
+NOPQRSTUVWXYZABCDEFG
+? 
+ERROR "/home/anu/pci/pccoe/day4/mapcomp.gs" (line 1): Equations give different arities for "rot13i"
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/mapcomp.gs
+? rot13
+ord ; subtract.65 ; rot13i ; flip.(+).65 ; chr : Char -> Char
+? rot13i
+flip.(+).13 ; flip.mod.26 : Int -> Int
+? [rot13.x | x <- "ABCDEFGHIJKLMNOPQRST"]
+NOPQRSTUVWXYZABCDEFG
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/mapcomp.gs
+? rot13s."ABCDEFGHIJKLMNOPQRST"
+map.ord ; map.(subtract.65) ; map.(flip.(+).13) ; map.(flip.mod.26) ; map.(flip.(+).65) ; map.chr : [Char] -> [Char]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/mapcomp.gs
+? rot13s."ABCDEFGHIJKLMNOPQRST"
+NOPQRSTUVWXYZABCDEFG
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/mapcomp.gs
+? rot13s."ABCDEFGHIJKLMNOPQRST"
+NOPQRSTUVWXYZABCDEFG
+? 

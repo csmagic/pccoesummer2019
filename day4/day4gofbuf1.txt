@@ -1,0 +1,121 @@
+Gofer Version 2.30a
+Modifications for pugofer Rusi Mody
+Copyright (c) Mark P Jones 1991-1994
+Copyright (c) Rusi Mody 1995-2015
+
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/ctype.gs
+? El
+El : Mylistint
+? 1
+1 : Int
+? Cons.1.El
+Cons.1.El : Mylistint
+? Cons.1.(Cons.2.El)
+Cons.1.(Cons.2.El) : Mylistint
+? 
+ERROR "/home/anu/pci/pccoe/day4/ctype.gs" (line 8): Type error in application
+*** expression     : Cons.y
+*** term           : y
+*** type           : Mylistint
+*** does not match : Int
+
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/ctype.gs
+? myllen.(Cons.1.(Cons.2.El))
+2 : Int
+? [1,2]
+[1, 2] : [Int]
+? 1::2::[]
+[1, 2] : [Int]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/ctype.gs
+? mylist.(Cons.1.(Cons.2.El)
+
+ERROR: Syntax error in expression (unexpected end of input)
+? mylist.(Cons.1.(Cons.2.El))
+[1, 2] : [Int]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/ctype.gs
+? mylist2.(1::2::[])
+Cons.1.(Cons.2.El) : Mylistint
+? :t foldr
+foldr : (a -> b -> b) -> b -> [a] -> b
+? foldr.(+).0.[1...3]
+6 : Int
+? foldr.Cons.El.[1...10]
+Cons.1.(Cons.2.(Cons.3.(Cons.4.(Cons.5.(Cons.6.(Cons.7.(Cons.8.(Cons.9.(Cons.10.El))))))))) : Mylistint
+? foldr.(\x->\y-> Cons.x.y).El.[1...10]
+
+ERROR: Syntax error in expression (unexpected symbol "->\")
+? foldr.(\x-> \y-> Cons.x.y).El.[1...10]
+Cons.1.(Cons.2.(Cons.3.(Cons.4.(Cons.5.(Cons.6.(Cons.7.(Cons.8.(Cons.9.(Cons.10.El))))))))) : Mylistint
+? ERROR: Improperly terminated character constant
+? El : Mylistint
+? Cons : Int -> Mylistint -> Mylistint
+? ? ? myllen : Mylistint -> Int
+? ERROR: Syntax error in input (unexpected `=')
+? ERROR: Syntax error in input (unexpected `=')
+? ? ERROR: Syntax error in input (unexpected `=')
+? ERROR: Syntax error in input (unexpected `=')
+? ? ERROR: Syntax error in input (unexpected `=')
+? ERROR: Syntax error in input (unexpected `=')
+? ? ERROR: Syntax error in expression (unexpected keyword "ctype")
+? ERROR: Undefined constructor function "Et"
+? ERROR: Syntax error in input (unexpected `)')
+?   C-c C-c{Interrupted!}
+?   
+ERROR "/home/anu/pci/pccoe/day4/ctype.gs" (line 17): Syntax error in type expression (unexpected `:')
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/ctype.gs
+? 
+ERROR "/home/anu/pci/pccoe/day4/ctype.gs" (line 1): Repeated definition for constructor function "Cons"
+? :t Cons.1.(Cons.2.Et.Et).(Cons.3.Et.Et)
+ERROR: Undefined constructor function "Cons"
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/ctype.gs
+? :t Const.1.(Const.2.Et.Et).(Const.3.Et.Et)
+Const.1.(Const.2.Et.Et).(Const.3.Et.Et) : Mytree
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/ctype.gs
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/ctype.gs
+? t1
+Ct.7.(Lf.3).(Lf.9) : Mytree
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/ctype.gs
+? t2
+Ct.3.(Lf.3).(Lf.4) : Mytree
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/ctype.gs
+? t3
+Ct.9.(Ct.7.(Lf.3).(Lf.9)).(Ct.3.(Lf.3).(Lf.4)) : Mytree
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/pccoe/day4/ctype.gs
+? pre.t3
+[9, 7, 3, 9, 3, 3, 4] : [Int]
+? 
